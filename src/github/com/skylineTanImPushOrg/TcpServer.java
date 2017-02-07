@@ -33,7 +33,7 @@ public class TcpServer {
     private static final EventLoopGroup bossGroup = new NioEventLoopGroup(BIZGROUPSIZE);
     private static final EventLoopGroup workerGroup = new NioEventLoopGroup(BIZTHREADSIZE);
 
-    protected static void run() throws Exception {
+    public static void run() throws Exception {
         ServerBootstrap b = new ServerBootstrap();
         b.group(bossGroup, workerGroup);
         b.channel(NioServerSocketChannel.class);
@@ -52,17 +52,11 @@ public class TcpServer {
         b.bind(IP, PORT).sync();
         logger.info("TCP服务器已启动");
     }
-
     protected static void shutdown() {
         workerGroup.shutdownGracefully();
         bossGroup.shutdownGracefully();
     }
 
-    public static void main(String[] args) throws Exception {
-        logger.info("开始启动TCP服务器...");
-        TcpServer.run();
-//		TcpServer.shutdown();
-    }
 }
 
 
