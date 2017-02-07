@@ -20,9 +20,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class TcpServer {
-    private static final Logger logger = LogManager.getLogger(TcpServer.class);
-    private static final String IP = "127.0.0.1";
-    private static final int PORT = 9999;
+
+
+    private static Logger logger = LogManager.getLogger(TcpServer.class);
+    private String IP = "127.0.0.1";
+    private int PORT = 9999;
     /**
      * 用于分配处理业务线程的线程组个数
      */
@@ -34,7 +36,13 @@ public class TcpServer {
     private static final EventLoopGroup bossGroup = new NioEventLoopGroup(BIZGROUPSIZE);
     private static final EventLoopGroup workerGroup = new NioEventLoopGroup(BIZTHREADSIZE);
 
-    public static void run() throws Exception {
+    public TcpServer(String ip, int port, Logger log) {
+        logger = log;
+        IP = ip;
+        PORT = port;
+    }
+
+    public void run() throws Exception {
         ServerBootstrap b = new ServerBootstrap();
         b.group(bossGroup, workerGroup);
         b.channel(NioServerSocketChannel.class);

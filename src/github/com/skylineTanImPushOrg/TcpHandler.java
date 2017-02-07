@@ -6,12 +6,13 @@ package github.com.skylineTanImPushOrg;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 
 public class TcpHandler extends SimpleChannelInboundHandler<Object> {
 
-    private static final Logger logger = Logger.getLogger(TcpServerHandler.class);
+    private Logger logger = LogManager.getLogger(TcpHandler.class);
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
