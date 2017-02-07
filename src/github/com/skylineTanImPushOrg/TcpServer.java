@@ -16,10 +16,11 @@ import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class TcpServer {
-    private static final Logger logger = Logger.getLogger(TcpServer.class);
+    private static final Logger logger = LogManager.getLogger(TcpServer.class);
     private static final String IP = "127.0.0.1";
     private static final int PORT = 9999;
     /**
