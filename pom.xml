@@ -2,4 +2,18 @@
     <modelVersion>4.0.0</modelVersion>
     <version>1.0.0</version>
     <artifactId>skypush</artifactId>
+    <groupId>github.com.skylineTanImPushOrg</groupId>
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.8.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.2.0</version>
+        </dependency>
+    </dependencies>
 </project>
