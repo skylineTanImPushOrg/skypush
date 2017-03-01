@@ -13,7 +13,7 @@ message Msg {
         VOICE = 4;
         CMD = 5;
     }
-
+    required bytes Data = 4;
     required MsgType type = 3 [default = TEXT];
-    optional string email = 4;
+
 }

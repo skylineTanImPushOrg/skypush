@@ -4,1097 +4,1025 @@
 package github.com.skylineTanImPushOrg.BytesBuf;
 
 public final class MessageBean {
-    private MessageBean() {
+  private MessageBean() {
+  }
+
+  public static void registerAllExtensions(
+          com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+
+  public static void registerAllExtensions(
+          com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+            (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+
+  public interface MsgOrBuilder extends
+          // @@protoc_insertion_point(interface_extends:Msg)
+          com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 speaker = 1;</code>
+     */
+    boolean hasSpeaker();
+
+    /**
+     * <code>required int32 speaker = 1;</code>
+     */
+    int getSpeaker();
+
+    /**
+     * <code>required int32 receiver = 2;</code>
+     */
+    boolean hasReceiver();
+
+    /**
+     * <code>required int32 receiver = 2;</code>
+     */
+    int getReceiver();
+
+    /**
+     * <code>required bytes Data = 4;</code>
+     */
+    boolean hasData();
+
+    /**
+     * <code>required bytes Data = 4;</code>
+     */
+    com.google.protobuf.ByteString getData();
+
+    /**
+     * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
+     */
+    boolean hasType();
+
+    /**
+     * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
+     */
+    github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType getType();
+  }
+
+  /**
+   * Protobuf type {@code Msg}
+   */
+  public static final class Msg extends
+          com.google.protobuf.GeneratedMessageV3 implements
+          // @@protoc_insertion_point(message_implements:Msg)
+          MsgOrBuilder {
+    // Use Msg.newBuilder() to construct.
+    private Msg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
     }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
+    private Msg() {
+      speaker_ = 0;
+      receiver_ = 0;
+      data_ = com.google.protobuf.ByteString.EMPTY;
+      type_ = 0;
     }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
     }
 
-    public interface MsgOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:Msg)
-            com.google.protobuf.MessageOrBuilder {
+    private Msg(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+              com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                      extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              speaker_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              receiver_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+              github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType value = github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(3, rawValue);
+              } else {
+                bitField0_ |= 0x00000008;
+                type_ = rawValue;
+              }
+              break;
+            }
+            case 34: {
+              bitField0_ |= 0x00000004;
+              data_ = input.readBytes();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+                e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
 
-        /**
-         * <code>required int32 speaker = 1;</code>
-         */
-        boolean hasSpeaker();
+    public static final com.google.protobuf.Descriptors.Descriptor
+    getDescriptor() {
+      return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_descriptor;
+    }
 
-        /**
-         * <code>required int32 speaker = 1;</code>
-         */
-        int getSpeaker();
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internalGetFieldAccessorTable() {
+      return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                      github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.class, github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.Builder.class);
+    }
 
-        /**
-         * <code>required int32 receiver = 2;</code>
-         */
-        boolean hasReceiver();
+    /**
+     * Protobuf enum {@code Msg.MsgType}
+     */
+    public enum MsgType
+            implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>TEXT = 0;</code>
+       */
+      TEXT(0),
+      /**
+       * <code>BINARY = 1;</code>
+       */
+      BINARY(1),
+      /**
+       * <code>LINK = 2;</code>
+       */
+      LINK(2),
+      /**
+       * <code>IMG = 3;</code>
+       */
+      IMG(3),
+      /**
+       * <code>VOICE = 4;</code>
+       */
+      VOICE(4),
+      /**
+       * <code>CMD = 5;</code>
+       */
+      CMD(5),;
 
-        /**
-         * <code>required int32 receiver = 2;</code>
-         */
-        int getReceiver();
+      /**
+       * <code>TEXT = 0;</code>
+       */
+      public static final int TEXT_VALUE = 0;
+      /**
+       * <code>BINARY = 1;</code>
+       */
+      public static final int BINARY_VALUE = 1;
+      /**
+       * <code>LINK = 2;</code>
+       */
+      public static final int LINK_VALUE = 2;
+      /**
+       * <code>IMG = 3;</code>
+       */
+      public static final int IMG_VALUE = 3;
+      /**
+       * <code>VOICE = 4;</code>
+       */
+      public static final int VOICE_VALUE = 4;
+      /**
+       * <code>CMD = 5;</code>
+       */
+      public static final int CMD_VALUE = 5;
 
-        /**
-         * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
-         */
-        boolean hasType();
 
-        /**
-         * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
-         */
-        github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType getType();
+      public final int getNumber() {
+        return value;
+      }
 
-        /**
-         * <code>optional string email = 4;</code>
-         */
-        boolean hasEmail();
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static MsgType valueOf(int value) {
+        return forNumber(value);
+      }
 
-        /**
-         * <code>optional string email = 4;</code>
-         */
-        java.lang.String getEmail();
+      public static MsgType forNumber(int value) {
+        switch (value) {
+          case 0:
+            return TEXT;
+          case 1:
+            return BINARY;
+          case 2:
+            return LINK;
+          case 3:
+            return IMG;
+          case 4:
+            return VOICE;
+          case 5:
+            return CMD;
+          default:
+            return null;
+        }
+      }
 
-        /**
-         * <code>optional string email = 4;</code>
-         */
-        com.google.protobuf.ByteString
-        getEmailBytes();
+      public static com.google.protobuf.Internal.EnumLiteMap<MsgType>
+      internalGetValueMap() {
+        return internalValueMap;
+      }
+
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+              MsgType> internalValueMap =
+              new com.google.protobuf.Internal.EnumLiteMap<MsgType>() {
+                public MsgType findValueByNumber(int number) {
+                  return MsgType.forNumber(number);
+                }
+              };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+      getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+      getDescriptorForType() {
+        return getDescriptor();
+      }
+
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+      getDescriptor() {
+        return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final MsgType[] VALUES = values();
+
+      public static MsgType valueOf(
+              com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+                  "EnumValueDescriptor is not for this type.");
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private MsgType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:Msg.MsgType)
+    }
+
+    private int bitField0_;
+    public static final int SPEAKER_FIELD_NUMBER = 1;
+    private int speaker_;
+
+    /**
+     * <code>required int32 speaker = 1;</code>
+     */
+    public boolean hasSpeaker() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+
+    /**
+     * <code>required int32 speaker = 1;</code>
+     */
+    public int getSpeaker() {
+      return speaker_;
+    }
+
+    public static final int RECEIVER_FIELD_NUMBER = 2;
+    private int receiver_;
+
+    /**
+     * <code>required int32 receiver = 2;</code>
+     */
+    public boolean hasReceiver() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+
+    /**
+     * <code>required int32 receiver = 2;</code>
+     */
+    public int getReceiver() {
+      return receiver_;
+    }
+
+    public static final int DATA_FIELD_NUMBER = 4;
+    private com.google.protobuf.ByteString data_;
+
+    /**
+     * <code>required bytes Data = 4;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+
+    /**
+     * <code>required bytes Data = 4;</code>
+     */
+    public com.google.protobuf.ByteString getData() {
+      return data_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private int type_;
+
+    /**
+     * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+
+    /**
+     * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
+     */
+    public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType getType() {
+      github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType result = github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.valueOf(type_);
+      return result == null ? github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.TEXT : result;
+    }
+
+    private byte memoizedIsInitialized = -1;
+
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasSpeaker()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasReceiver()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasData()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+            throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, speaker_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, receiver_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeEnum(3, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(4, data_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeInt32Size(1, speaker_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeInt32Size(2, receiver_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeEnumSize(3, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+                .computeBytesSize(4, data_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+        return true;
+      }
+      if (!(obj instanceof github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg)) {
+        return super.equals(obj);
+      }
+      github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg other = (github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg) obj;
+
+      boolean result = true;
+      result = result && (hasSpeaker() == other.hasSpeaker());
+      if (hasSpeaker()) {
+        result = result && (getSpeaker()
+                == other.getSpeaker());
+      }
+      result = result && (hasReceiver() == other.hasReceiver());
+      if (hasReceiver()) {
+        result = result && (getReceiver()
+                == other.getReceiver());
+      }
+      result = result && (hasData() == other.hasData());
+      if (hasData()) {
+        result = result && getData()
+                .equals(other.getData());
+      }
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && type_ == other.type_;
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasSpeaker()) {
+        hash = (37 * hash) + SPEAKER_FIELD_NUMBER;
+        hash = (53 * hash) + getSpeaker();
+      }
+      if (hasReceiver()) {
+        hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
+        hash = (53 * hash) + getReceiver();
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + type_;
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
+            com.google.protobuf.ByteString data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
+            com.google.protobuf.ByteString data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(byte[] data)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
+            byte[] data,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseDelimitedFrom(java.io.InputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseDelimitedFrom(
+            java.io.InputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
+            com.google.protobuf.CodedInputStream input)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input);
+    }
+
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+              .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() {
+      return newBuilder();
+    }
+
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+
+    public static Builder newBuilder(github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+              ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
     }
 
     /**
      * Protobuf type {@code Msg}
      */
-    public static final class Msg extends
-            com.google.protobuf.GeneratedMessageV3 implements
-            // @@protoc_insertion_point(message_implements:Msg)
-            MsgOrBuilder {
-        // Use Msg.newBuilder() to construct.
-        private Msg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-            super(builder);
+    public static final class Builder extends
+            com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+            // @@protoc_insertion_point(builder_implements:Msg)
+            github.com.skylineTanImPushOrg.BytesBuf.MessageBean.MsgOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+      getDescriptor() {
+        return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internalGetFieldAccessorTable() {
+        return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_fieldAccessorTable
+                .ensureFieldAccessorsInitialized(
+                        github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.class, github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.Builder.class);
+      }
+
+      // Construct using github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+              com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
         }
+      }
 
-        private Msg() {
-            speaker_ = 0;
-            receiver_ = 0;
-            type_ = 0;
-            email_ = "";
+      public Builder clear() {
+        super.clear();
+        speaker_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        receiver_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        data_ = com.google.protobuf.ByteString.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        type_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+      getDescriptorForType() {
+        return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_descriptor;
+      }
+
+      public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg getDefaultInstanceForType() {
+        return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.getDefaultInstance();
+      }
+
+      public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg build() {
+        github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
         }
+        return result;
+      }
 
-        @java.lang.Override
-        public final com.google.protobuf.UnknownFieldSet
-        getUnknownFields() {
-            return this.unknownFields;
+      public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg buildPartial() {
+        github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg result = new github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
         }
-
-        private Msg(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            this();
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-                    com.google.protobuf.UnknownFieldSet.newBuilder();
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownField(input, unknownFields,
-                                    extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            bitField0_ |= 0x00000001;
-                            speaker_ = input.readInt32();
-                            break;
-                        }
-                        case 16: {
-                            bitField0_ |= 0x00000002;
-                            receiver_ = input.readInt32();
-                            break;
-                        }
-                        case 24: {
-                            int rawValue = input.readEnum();
-                            github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType value = github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.valueOf(rawValue);
-                            if (value == null) {
-                                unknownFields.mergeVarintField(3, rawValue);
-                            } else {
-                                bitField0_ |= 0x00000004;
-                                type_ = rawValue;
-                            }
-                            break;
-                        }
-                        case 34: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
-                            bitField0_ |= 0x00000008;
-                            email_ = bs;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e).setUnfinishedMessage(this);
-            } finally {
-                this.unknownFields = unknownFields.build();
-                makeExtensionsImmutable();
-            }
+        result.speaker_ = speaker_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
         }
-
-        public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-            return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_descriptor;
+        result.receiver_ = receiver_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
         }
-
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-            return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_fieldAccessorTable
-                    .ensureFieldAccessorsInitialized(
-                            github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.class, github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.Builder.class);
+        result.data_ = data_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
+        result.type_ = type_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
 
-        /**
-         * Protobuf enum {@code Msg.MsgType}
-         */
-        public enum MsgType
-                implements com.google.protobuf.ProtocolMessageEnum {
-            /**
-             * <code>TEXT = 0;</code>
-             */
-            TEXT(0),
-            /**
-             * <code>BINARY = 1;</code>
-             */
-            BINARY(1),
-            /**
-             * <code>LINK = 2;</code>
-             */
-            LINK(2),
-            /**
-             * <code>IMG = 3;</code>
-             */
-            IMG(3),
-            /**
-             * <code>VOICE = 4;</code>
-             */
-            VOICE(4),
-            /**
-             * <code>CMD = 5;</code>
-             */
-            CMD(5),;
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
 
-            /**
-             * <code>TEXT = 0;</code>
-             */
-            public static final int TEXT_VALUE = 0;
-            /**
-             * <code>BINARY = 1;</code>
-             */
-            public static final int BINARY_VALUE = 1;
-            /**
-             * <code>LINK = 2;</code>
-             */
-            public static final int LINK_VALUE = 2;
-            /**
-             * <code>IMG = 3;</code>
-             */
-            public static final int IMG_VALUE = 3;
-            /**
-             * <code>VOICE = 4;</code>
-             */
-            public static final int VOICE_VALUE = 4;
-            /**
-             * <code>CMD = 5;</code>
-             */
-            public static final int CMD_VALUE = 5;
+      public Builder setField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+        return (Builder) super.setField(field, value);
+      }
 
+      public Builder clearField(
+              com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
 
-            public final int getNumber() {
-                return value;
-            }
+      public Builder clearOneof(
+              com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
 
-            /**
-             * @deprecated Use {@link #forNumber(int)} instead.
-             */
-            @java.lang.Deprecated
-            public static MsgType valueOf(int value) {
-                return forNumber(value);
-            }
+      public Builder setRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
 
-            public static MsgType forNumber(int value) {
-                switch (value) {
-                    case 0:
-                        return TEXT;
-                    case 1:
-                        return BINARY;
-                    case 2:
-                        return LINK;
-                    case 3:
-                        return IMG;
-                    case 4:
-                        return VOICE;
-                    case 5:
-                        return CMD;
-                    default:
-                        return null;
-                }
-            }
+      public Builder addRepeatedField(
+              com.google.protobuf.Descriptors.FieldDescriptor field,
+              Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
 
-            public static com.google.protobuf.Internal.EnumLiteMap<MsgType>
-            internalGetValueMap() {
-                return internalValueMap;
-            }
-
-            private static final com.google.protobuf.Internal.EnumLiteMap<
-                    MsgType> internalValueMap =
-                    new com.google.protobuf.Internal.EnumLiteMap<MsgType>() {
-                        public MsgType findValueByNumber(int number) {
-                            return MsgType.forNumber(number);
-                        }
-                    };
-
-            public final com.google.protobuf.Descriptors.EnumValueDescriptor
-            getValueDescriptor() {
-                return getDescriptor().getValues().get(ordinal());
-            }
-
-            public final com.google.protobuf.Descriptors.EnumDescriptor
-            getDescriptorForType() {
-                return getDescriptor();
-            }
-
-            public static final com.google.protobuf.Descriptors.EnumDescriptor
-            getDescriptor() {
-                return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.getDescriptor().getEnumTypes().get(0);
-            }
-
-            private static final MsgType[] VALUES = values();
-
-            public static MsgType valueOf(
-                    com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-                if (desc.getType() != getDescriptor()) {
-                    throw new java.lang.IllegalArgumentException(
-                            "EnumValueDescriptor is not for this type.");
-                }
-                return VALUES[desc.getIndex()];
-            }
-
-            private final int value;
-
-            private MsgType(int value) {
-                this.value = value;
-            }
-
-            // @@protoc_insertion_point(enum_scope:Msg.MsgType)
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg) {
+          return mergeFrom((github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg) other);
+        } else {
+          super.mergeFrom(other);
+          return this;
         }
+      }
 
-        private int bitField0_;
-        public static final int SPEAKER_FIELD_NUMBER = 1;
-        private int speaker_;
-
-        /**
-         * <code>required int32 speaker = 1;</code>
-         */
-        public boolean hasSpeaker() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
+      public Builder mergeFrom(github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg other) {
+        if (other == github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.getDefaultInstance()) return this;
+        if (other.hasSpeaker()) {
+          setSpeaker(other.getSpeaker());
         }
-
-        /**
-         * <code>required int32 speaker = 1;</code>
-         */
-        public int getSpeaker() {
-            return speaker_;
+        if (other.hasReceiver()) {
+          setReceiver(other.getReceiver());
         }
-
-        public static final int RECEIVER_FIELD_NUMBER = 2;
-        private int receiver_;
-
-        /**
-         * <code>required int32 receiver = 2;</code>
-         */
-        public boolean hasReceiver() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
+        if (other.hasData()) {
+          setData(other.getData());
         }
-
-        /**
-         * <code>required int32 receiver = 2;</code>
-         */
-        public int getReceiver() {
-            return receiver_;
+        if (other.hasType()) {
+          setType(other.getType());
         }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
 
-        public static final int TYPE_FIELD_NUMBER = 3;
-        private int type_;
-
-        /**
-         * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
-         */
-        public boolean hasType() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
+      public final boolean isInitialized() {
+        if (!hasSpeaker()) {
+          return false;
         }
-
-        /**
-         * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
-         */
-        public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType getType() {
-            github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType result = github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.valueOf(type_);
-            return result == null ? github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.TEXT : result;
+        if (!hasReceiver()) {
+          return false;
         }
-
-        public static final int EMAIL_FIELD_NUMBER = 4;
-        private volatile java.lang.Object email_;
-
-        /**
-         * <code>optional string email = 4;</code>
-         */
-        public boolean hasEmail() {
-            return ((bitField0_ & 0x00000008) == 0x00000008);
+        if (!hasData()) {
+          return false;
         }
-
-        /**
-         * <code>optional string email = 4;</code>
-         */
-        public java.lang.String getEmail() {
-            java.lang.Object ref = email_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                if (bs.isValidUtf8()) {
-                    email_ = s;
-                }
-                return s;
-            }
+        if (!hasType()) {
+          return false;
         }
+        return true;
+      }
 
-        /**
-         * <code>optional string email = 4;</code>
-         */
-        public com.google.protobuf.ByteString
-        getEmailBytes() {
-            java.lang.Object ref = email_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                email_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
+      public Builder mergeFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+        github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
         }
+        return this;
+      }
 
-        private byte memoizedIsInitialized = -1;
+      private int bitField0_;
 
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
+      private int speaker_;
 
-            if (!hasSpeaker()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            if (!hasReceiver()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            if (!hasType()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            memoizedIsInitialized = 1;
-            return true;
+      /**
+       * <code>required int32 speaker = 1;</code>
+       */
+      public boolean hasSpeaker() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+
+      /**
+       * <code>required int32 speaker = 1;</code>
+       */
+      public int getSpeaker() {
+        return speaker_;
+      }
+
+      /**
+       * <code>required int32 speaker = 1;</code>
+       */
+      public Builder setSpeaker(int value) {
+        bitField0_ |= 0x00000001;
+        speaker_ = value;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>required int32 speaker = 1;</code>
+       */
+      public Builder clearSpeaker() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        speaker_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int receiver_;
+
+      /**
+       * <code>required int32 receiver = 2;</code>
+       */
+      public boolean hasReceiver() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+
+      /**
+       * <code>required int32 receiver = 2;</code>
+       */
+      public int getReceiver() {
+        return receiver_;
+      }
+
+      /**
+       * <code>required int32 receiver = 2;</code>
+       */
+      public Builder setReceiver(int value) {
+        bitField0_ |= 0x00000002;
+        receiver_ = value;
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>required int32 receiver = 2;</code>
+       */
+      public Builder clearReceiver() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        receiver_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+
+      /**
+       * <code>required bytes Data = 4;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+
+      /**
+       * <code>required bytes Data = 4;</code>
+       */
+      public com.google.protobuf.ByteString getData() {
+        return data_;
+      }
+
+      /**
+       * <code>required bytes Data = 4;</code>
+       */
+      public Builder setData(com.google.protobuf.ByteString value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
+        bitField0_ |= 0x00000004;
+        data_ = value;
+        onChanged();
+        return this;
+      }
 
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                output.writeInt32(1, speaker_);
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                output.writeInt32(2, receiver_);
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                output.writeEnum(3, type_);
-            }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                com.google.protobuf.GeneratedMessageV3.writeString(output, 4, email_);
-            }
-            unknownFields.writeTo(output);
+      /**
+       * <code>required bytes Data = 4;</code>
+       */
+      public Builder clearData() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        data_ = getDefaultInstance().getData();
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+
+      /**
+       * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+
+      /**
+       * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
+       */
+      public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType getType() {
+        github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType result = github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.valueOf(type_);
+        return result == null ? github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.TEXT : result;
+      }
+
+      /**
+       * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
+       */
+      public Builder setType(github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType value) {
+        if (value == null) {
+          throw new NullPointerException();
         }
-
-        public int getSerializedSize() {
-            int size = memoizedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeInt32Size(1, speaker_);
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeInt32Size(2, receiver_);
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(3, type_);
-            }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, email_);
-            }
-            size += unknownFields.getSerializedSize();
-            memoizedSize = size;
-            return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg)) {
-                return super.equals(obj);
-            }
-            github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg other = (github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg) obj;
-
-            boolean result = true;
-            result = result && (hasSpeaker() == other.hasSpeaker());
-            if (hasSpeaker()) {
-                result = result && (getSpeaker()
-                        == other.getSpeaker());
-            }
-            result = result && (hasReceiver() == other.hasReceiver());
-            if (hasReceiver()) {
-                result = result && (getReceiver()
-                        == other.getReceiver());
-            }
-            result = result && (hasType() == other.hasType());
-            if (hasType()) {
-                result = result && type_ == other.type_;
-            }
-            result = result && (hasEmail() == other.hasEmail());
-            if (hasEmail()) {
-                result = result && getEmail()
-                        .equals(other.getEmail());
-            }
-            result = result && unknownFields.equals(other.unknownFields);
-            return result;
-        }
-
-        @java.lang.Override
-        public int hashCode() {
-            if (memoizedHashCode != 0) {
-                return memoizedHashCode;
-            }
-            int hash = 41;
-            hash = (19 * hash) + getDescriptor().hashCode();
-            if (hasSpeaker()) {
-                hash = (37 * hash) + SPEAKER_FIELD_NUMBER;
-                hash = (53 * hash) + getSpeaker();
-            }
-            if (hasReceiver()) {
-                hash = (37 * hash) + RECEIVER_FIELD_NUMBER;
-                hash = (53 * hash) + getReceiver();
-            }
-            if (hasType()) {
-                hash = (37 * hash) + TYPE_FIELD_NUMBER;
-                hash = (53 * hash) + type_;
-            }
-            if (hasEmail()) {
-                hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-                hash = (53 * hash) + getEmail().hashCode();
-            }
-            hash = (29 * hash) + unknownFields.hashCode();
-            memoizedHashCode = hash;
-            return hash;
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input);
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return com.google.protobuf.GeneratedMessageV3
-                    .parseWithIOException(PARSER, input, extensionRegistry);
-        }
-
-        public Builder newBuilderForType() {
-            return newBuilder();
-        }
-
-        public static Builder newBuilder() {
-            return DEFAULT_INSTANCE.toBuilder();
-        }
-
-        public static Builder newBuilder(github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg prototype) {
-            return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-        }
-
-        public Builder toBuilder() {
-            return this == DEFAULT_INSTANCE
-                    ? new Builder() : new Builder().mergeFrom(this);
-        }
-
-        @java.lang.Override
-        protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-            Builder builder = new Builder(parent);
-            return builder;
-        }
-
-        /**
-         * Protobuf type {@code Msg}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-                // @@protoc_insertion_point(builder_implements:Msg)
-                github.com.skylineTanImPushOrg.BytesBuf.MessageBean.MsgOrBuilder {
-            public static final com.google.protobuf.Descriptors.Descriptor
-            getDescriptor() {
-                return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_descriptor;
-            }
-
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internalGetFieldAccessorTable() {
-                return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_fieldAccessorTable
-                        .ensureFieldAccessorsInitialized(
-                                github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.class, github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.Builder.class);
-            }
-
-            // Construct using github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-                super(parent);
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-                if (com.google.protobuf.GeneratedMessageV3
-                        .alwaysUseFieldBuilders) {
-                }
-            }
-
-            public Builder clear() {
-                super.clear();
-                speaker_ = 0;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                receiver_ = 0;
-                bitField0_ = (bitField0_ & ~0x00000002);
-                type_ = 0;
-                bitField0_ = (bitField0_ & ~0x00000004);
-                email_ = "";
-                bitField0_ = (bitField0_ & ~0x00000008);
-                return this;
-            }
-
-            public com.google.protobuf.Descriptors.Descriptor
-            getDescriptorForType() {
-                return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.internal_static_Msg_descriptor;
-            }
-
-            public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg getDefaultInstanceForType() {
-                return github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.getDefaultInstance();
-            }
-
-            public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg build() {
-                github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg buildPartial() {
-                github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg result = new github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                    to_bitField0_ |= 0x00000001;
-                }
-                result.speaker_ = speaker_;
-                if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-                    to_bitField0_ |= 0x00000002;
-                }
-                result.receiver_ = receiver_;
-                if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-                    to_bitField0_ |= 0x00000004;
-                }
-                result.type_ = type_;
-                if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-                    to_bitField0_ |= 0x00000008;
-                }
-                result.email_ = email_;
-                result.bitField0_ = to_bitField0_;
-                onBuilt();
-                return result;
-            }
-
-            public Builder clone() {
-                return (Builder) super.clone();
-            }
-
-            public Builder setField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
-                return (Builder) super.setField(field, value);
-            }
-
-            public Builder clearField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field) {
-                return (Builder) super.clearField(field);
-            }
-
-            public Builder clearOneof(
-                    com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-                return (Builder) super.clearOneof(oneof);
-            }
-
-            public Builder setRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, Object value) {
-                return (Builder) super.setRepeatedField(field, index, value);
-            }
-
-            public Builder addRepeatedField(
-                    com.google.protobuf.Descriptors.FieldDescriptor field,
-                    Object value) {
-                return (Builder) super.addRepeatedField(field, value);
-            }
-
-            public Builder mergeFrom(com.google.protobuf.Message other) {
-                if (other instanceof github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg) {
-                    return mergeFrom((github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg) other);
-                } else {
-                    super.mergeFrom(other);
-                    return this;
-                }
-            }
-
-            public Builder mergeFrom(github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg other) {
-                if (other == github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.getDefaultInstance()) return this;
-                if (other.hasSpeaker()) {
-                    setSpeaker(other.getSpeaker());
-                }
-                if (other.hasReceiver()) {
-                    setReceiver(other.getReceiver());
-                }
-                if (other.hasType()) {
-                    setType(other.getType());
-                }
-                if (other.hasEmail()) {
-                    bitField0_ |= 0x00000008;
-                    email_ = other.email_;
-                    onChanged();
-                }
-                this.mergeUnknownFields(other.unknownFields);
-                onChanged();
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                if (!hasSpeaker()) {
-                    return false;
-                }
-                if (!hasReceiver()) {
-                    return false;
-                }
-                if (!hasType()) {
-                    return false;
-                }
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg) e.getUnfinishedMessage();
-                    throw e.unwrapIOException();
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-
-            private int bitField0_;
-
-            private int speaker_;
-
-            /**
-             * <code>required int32 speaker = 1;</code>
-             */
-            public boolean hasSpeaker() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
-
-            /**
-             * <code>required int32 speaker = 1;</code>
-             */
-            public int getSpeaker() {
-                return speaker_;
-            }
-
-            /**
-             * <code>required int32 speaker = 1;</code>
-             */
-            public Builder setSpeaker(int value) {
-                bitField0_ |= 0x00000001;
-                speaker_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>required int32 speaker = 1;</code>
-             */
-            public Builder clearSpeaker() {
-                bitField0_ = (bitField0_ & ~0x00000001);
-                speaker_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private int receiver_;
-
-            /**
-             * <code>required int32 receiver = 2;</code>
-             */
-            public boolean hasReceiver() {
-                return ((bitField0_ & 0x00000002) == 0x00000002);
-            }
-
-            /**
-             * <code>required int32 receiver = 2;</code>
-             */
-            public int getReceiver() {
-                return receiver_;
-            }
-
-            /**
-             * <code>required int32 receiver = 2;</code>
-             */
-            public Builder setReceiver(int value) {
-                bitField0_ |= 0x00000002;
-                receiver_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>required int32 receiver = 2;</code>
-             */
-            public Builder clearReceiver() {
-                bitField0_ = (bitField0_ & ~0x00000002);
-                receiver_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private int type_ = 0;
-
-            /**
-             * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
-             */
-            public boolean hasType() {
-                return ((bitField0_ & 0x00000004) == 0x00000004);
-            }
-
-            /**
-             * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
-             */
-            public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType getType() {
-                github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType result = github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.valueOf(type_);
-                return result == null ? github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType.TEXT : result;
-            }
-
-            /**
-             * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
-             */
-            public Builder setType(github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg.MsgType value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000004;
-                type_ = value.getNumber();
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
-             */
-            public Builder clearType() {
-                bitField0_ = (bitField0_ & ~0x00000004);
-                type_ = 0;
-                onChanged();
-                return this;
-            }
-
-            private java.lang.Object email_ = "";
-
-            /**
-             * <code>optional string email = 4;</code>
-             */
-            public boolean hasEmail() {
-                return ((bitField0_ & 0x00000008) == 0x00000008);
-            }
-
-            /**
-             * <code>optional string email = 4;</code>
-             */
-            public java.lang.String getEmail() {
-                java.lang.Object ref = email_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    if (bs.isValidUtf8()) {
-                        email_ = s;
-                    }
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-
-            /**
-             * <code>optional string email = 4;</code>
-             */
-            public com.google.protobuf.ByteString
-            getEmailBytes() {
-                java.lang.Object ref = email_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    email_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-
-            /**
-             * <code>optional string email = 4;</code>
-             */
-            public Builder setEmail(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000008;
-                email_ = value;
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>optional string email = 4;</code>
-             */
-            public Builder clearEmail() {
-                bitField0_ = (bitField0_ & ~0x00000008);
-                email_ = getDefaultInstance().getEmail();
-                onChanged();
-                return this;
-            }
-
-            /**
-             * <code>optional string email = 4;</code>
-             */
-            public Builder setEmailBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000008;
-                email_ = value;
-                onChanged();
-                return this;
-            }
-
-            public final Builder setUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.setUnknownFields(unknownFields);
-            }
-
-            public final Builder mergeUnknownFields(
-                    final com.google.protobuf.UnknownFieldSet unknownFields) {
-                return super.mergeUnknownFields(unknownFields);
-            }
-
-
-            // @@protoc_insertion_point(builder_scope:Msg)
-        }
-
-        // @@protoc_insertion_point(class_scope:Msg)
-        private static final github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg DEFAULT_INSTANCE;
-
-        static {
-            DEFAULT_INSTANCE = new github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg();
-        }
-
-        public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg getDefaultInstance() {
-            return DEFAULT_INSTANCE;
-        }
-
-        @java.lang.Deprecated
-        public static final com.google.protobuf.Parser<Msg>
-                PARSER = new com.google.protobuf.AbstractParser<Msg>() {
-            public Msg parsePartialFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws com.google.protobuf.InvalidProtocolBufferException {
-                return new Msg(input, extensionRegistry);
-            }
-        };
-
-        public static com.google.protobuf.Parser<Msg> parser() {
-            return PARSER;
-        }
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<Msg> getParserForType() {
-            return PARSER;
-        }
-
-        public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg getDefaultInstanceForType() {
-            return DEFAULT_INSTANCE;
-        }
-
+        bitField0_ |= 0x00000008;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+
+      /**
+       * <code>required .Msg.MsgType type = 3 [default = TEXT];</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      public final Builder setUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+              final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Msg)
     }
 
-    private static final com.google.protobuf.Descriptors.Descriptor
-            internal_static_Msg_descriptor;
-    private static final
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-            internal_static_Msg_fieldAccessorTable;
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
-    }
-
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+    // @@protoc_insertion_point(class_scope:Msg)
+    private static final github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg DEFAULT_INSTANCE;
 
     static {
-        java.lang.String[] descriptorData = {
-                "\n\tmsg.proto\"\241\001\n\003Msg\022\017\n\007speaker\030\001 \002(\005\022\020\n\010" +
-                        "receiver\030\002 \002(\005\022 \n\004type\030\003 \002(\0162\014.Msg.MsgTy" +
-                        "pe:\004TEXT\022\r\n\005email\030\004 \001(\t\"F\n\007MsgType\022\010\n\004TE" +
-                        "XT\020\000\022\n\n\006BINARY\020\001\022\010\n\004LINK\020\002\022\007\n\003IMG\020\003\022\t\n\005V" +
-                        "OICE\020\004\022\007\n\003CMD\020\005B6\n\'github.com.skylineTan" +
-                        "ImPushOrg.BytesBufB\013MessageBean"
-        };
-        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-                new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
-                            com.google.protobuf.Descriptors.FileDescriptor root) {
-                        descriptor = root;
-                        return null;
-                    }
-                };
-        com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                        }, assigner);
-        internal_static_Msg_descriptor =
-                getDescriptor().getMessageTypes().get(0);
-        internal_static_Msg_fieldAccessorTable = new
-                com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-                internal_static_Msg_descriptor,
-                new java.lang.String[]{"Speaker", "Receiver", "Type", "Email",});
+      DEFAULT_INSTANCE = new github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg();
     }
 
-    // @@protoc_insertion_point(outer_class_scope)
+    public static github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated
+    public static final com.google.protobuf.Parser<Msg>
+            PARSER = new com.google.protobuf.AbstractParser<Msg>() {
+      public Msg parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+        return new Msg(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Msg> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Msg> getParserForType() {
+      return PARSER;
+    }
+
+    public github.com.skylineTanImPushOrg.BytesBuf.MessageBean.Msg getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+          internal_static_Msg_descriptor;
+  private static final
+  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internal_static_Msg_fieldAccessorTable;
+
+  public static com.google.protobuf.Descriptors.FileDescriptor
+  getDescriptor() {
+    return descriptor;
+  }
+
+  private static com.google.protobuf.Descriptors.FileDescriptor
+          descriptor;
+
+  static {
+    java.lang.String[] descriptorData = {
+            "\n\tmsg.proto\"\240\001\n\003Msg\022\017\n\007speaker\030\001 \002(\005\022\020\n\010" +
+                    "receiver\030\002 \002(\005\022\014\n\004Data\030\004 \002(\014\022 \n\004type\030\003 \002" +
+                    "(\0162\014.Msg.MsgType:\004TEXT\"F\n\007MsgType\022\010\n\004TEX" +
+                    "T\020\000\022\n\n\006BINARY\020\001\022\010\n\004LINK\020\002\022\007\n\003IMG\020\003\022\t\n\005VO" +
+                    "ICE\020\004\022\007\n\003CMD\020\005B6\n\'github.com.skylineTanI" +
+                    "mPushOrg.BytesBufB\013MessageBean"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+            new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+              public com.google.protobuf.ExtensionRegistry assignDescriptors(
+                      com.google.protobuf.Descriptors.FileDescriptor root) {
+                descriptor = root;
+                return null;
+              }
+            };
+    com.google.protobuf.Descriptors.FileDescriptor
+            .internalBuildGeneratedFileFrom(descriptorData,
+                    new com.google.protobuf.Descriptors.FileDescriptor[]{
+        }, assigner);
+    internal_static_Msg_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_Msg_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Msg_descriptor,
+        new java.lang.String[] { "Speaker", "Receiver", "Data", "Type", });
+  }
+
+  // @@protoc_insertion_point(outer_class_scope)
 }
