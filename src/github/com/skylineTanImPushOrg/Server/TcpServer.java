@@ -1,4 +1,4 @@
-package github.com.skylineTanImPushOrg;
+package github.com.skylineTanImPushOrg.Server;
 
 /**
  * Created by paidian on 17-2-7.
@@ -13,9 +13,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import io.netty.handler.codec.LengthFieldPrepender;
-import io.netty.handler.codec.string.StringDecoder;
-import io.netty.handler.codec.string.StringEncoder;
-import io.netty.util.CharsetUtil;
+import io.netty.handler.codec.bytes.ByteArrayDecoder;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -52,8 +50,8 @@ public class TcpServer {
                 ChannelPipeline pipeline = ch.pipeline();
                 pipeline.addLast("frameDecoder", new LengthFieldBasedFrameDecoder(Integer.MAX_VALUE, 0, 4, 0, 4));
                 pipeline.addLast("frameEncoder", new LengthFieldPrepender(4));
-                pipeline.addLast("decoder", new StringDecoder(CharsetUtil.UTF_8));
-                pipeline.addLast("encoder", new StringEncoder(CharsetUtil.UTF_8));
+                pipeline.addLast("decoder", new ByteArrayDecoder());
+                pipeline.addLast("encoder", new ByteArrayDecoder());
                 pipeline.addLast(new TcpHandler());
             }
         });
