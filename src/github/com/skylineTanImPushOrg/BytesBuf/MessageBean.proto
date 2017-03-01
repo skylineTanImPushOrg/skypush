@@ -1,0 +1,5 @@
+option java_package = "github.com.skylineTanImPushOrg.BytesBuf";
+option java_outer_classname = "MessageBean";
+
+public class MessageBean {
+}
