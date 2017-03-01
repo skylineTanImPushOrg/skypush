@@ -1,5 +1,19 @@
 option java_package = "github.com.skylineTanImPushOrg.BytesBuf";
 option java_outer_classname = "MessageBean";
 
-public class MessageBean {
+message Msg {
+    required int32 speaker = 1;
+    required int32 receiver = 2;
+
+    enum MsgType {
+        TEXT = 0;
+        BINARY = 1;
+        LINK = 2;
+        IMG = 3;
+        VOICE = 4;
+        CMD = 5;
+    }
+
+    required MsgType type = 3 [default = TEXT];
+    optional string email = 4;
 }
